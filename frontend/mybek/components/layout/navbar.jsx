@@ -4,11 +4,14 @@ import SearchIcon from '../icons/search';
 import Button from '../ui/button';
 import { useEffect, useState } from 'react';
 import classes from './navbar.module.css';
+import useSWR from 'swr';
+import { fetcher } from '@/lib/utils';
 
 const Navbar = () => {
   const [color, setColor] = useState('transparent');
   const topHeader = '60px';
-
+  const { data, error } = useSWR('/api/categories', fetcher);
+  
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 30) {
@@ -42,7 +45,7 @@ const Navbar = () => {
       </div>
       <div className={classes.slider}>
         <div
-          className="flex items-center fixed top-18 w-full"
+          className="flex items-center w-full fixed top-18"
           style={{
             backgroundColor: `${color}`,
             top: topHeader,
@@ -51,16 +54,33 @@ const Navbar = () => {
           <Link href="/">
             <Image src="/logo.png" alt="site logo" width={128} height={77} />
           </Link>
-          <ul className="flex space-x-8 flex-1 mx-4">
-            <li>
-              <Link href="/products">Products & Applications</Link>
-            </li>
-            <li>
-              <Link href="/sustainability">Sustainability</Link>
-            </li>
-          </ul>
+          {data?.data?.length > 0 && (
+            <ul className="flex space-x-8 flex-1 mx-4">
+              {data?.data?.map((menu) => (
+                <li>
+                  <Link href={`/${menu.route}`}>{menu.title}</Link>
+
+                  {menu?.children?.length > 0 && (
+                    <ul className="flex space-x-8 flex-1 mx-4">
+                      {menu?.children.map((c) => (
+                        <li>
+                          <Link href={`/${menu.route}/${c.route}`}>
+                            {c.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+
           <Button>Contact Us</Button>
         </div>
+        <h1 style={{ color: 'red' }}>
+          Shape the world with creativity beyond steel
+        </h1>
       </div>
     </nav>
   );
