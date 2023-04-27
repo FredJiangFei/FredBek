@@ -1,5 +1,5 @@
 import React from 'react';
-import ChevronRightIcon from './icons/chevron-right';
+import ChevronRightIcon from '../icons/chevron-right';
 
 function Breadcrumb() {
   return (
