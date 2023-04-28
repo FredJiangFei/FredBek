@@ -1,22 +1,31 @@
-function handler(req, res) {
-  const categories = [
-    {
-      title: 'Products & Applications',
-      route: 'products-and-applications',
-      children: [
-        {
-          title: 'Markets',
-          route: 'markets',
-          isCategory: true,
-          children: [
-            { title: 'Automotive', route: 'automotive', children: [] },
-            { title: 'Construction', route: 'construction', children: [] },
-          ],
-        },
-      ],
-    },
-    { title: 'Sustainability', route: 'sustainability', children: [] },
-  ];
+import apolloClient from '@/lib/apollo-client';
+import { gql } from '@apollo/client';
+
+const CATEGORY = gql`
+  query {
+    categories {
+      data {
+        id
+        attributes {
+          title
+          route
+        }
+      }
+    }
+  }
+`;
+
+async function handler(req, res) {
+  const { data } = await apolloClient.query({
+    query: CATEGORY,
+  });
+  const categories = data.categories.data.map((category) => {
+    return {
+      id: category.id,
+      ...category.attributes,
+    };
+  });
+
   res.status(200).json({ data: categories });
 }
 

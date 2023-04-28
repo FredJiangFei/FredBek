@@ -57,13 +57,13 @@ const Navbar = () => {
           {data?.data?.length > 0 && (
             <ul className="flex space-x-8 flex-1 mx-4">
               {data?.data?.map((menu) => (
-                <li>
+                <li key={menu.title}>
                   <Link href={`/${menu.route}`}>{menu.title}</Link>
 
                   {menu?.children?.length > 0 && (
                     <ul className="flex space-x-8 flex-1 mx-4">
                       {menu?.children.map((c) => (
-                        <li>
+                        <li key={c.title}>
                           <Link href={`/${menu.route}/${c.route}`}>
                             {c.title}
                           </Link>

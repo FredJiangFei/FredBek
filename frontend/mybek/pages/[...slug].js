@@ -8,9 +8,6 @@ export default function Products() {
     return <p>Loading...</p>;
   }
 
-  
-
-
   return (
     <>
       <Breadcrumb items={slug} />
