@@ -10,7 +10,7 @@ import { fetcher } from '@/lib/utils';
 const Navbar = () => {
   const [color, setColor] = useState('transparent');
   const topHeader = '60px';
-  const { data, error } = useSWR('/api/categories', fetcher);
+  const { data } = useSWR('/api/categories', fetcher);
   
   useEffect(() => {
     const changeColor = () => {

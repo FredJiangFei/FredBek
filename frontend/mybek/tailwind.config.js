@@ -20,6 +20,20 @@ module.exports = {
         5: '#A7A098',
       },
     },
+    fontSize: {
+      'page-title': [
+        '3.5rem',
+        {
+          fontWeight: '700',
+        },
+      ],
+      'card-title': [
+        '1.5rem',
+        {
+          fontWeight: '700',
+        },
+      ],
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
