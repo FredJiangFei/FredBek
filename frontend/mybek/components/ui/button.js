@@ -1,18 +1,9 @@
-import Link from 'next/link';
 import classes from './button.module.css';
 
-function Button(props) {
-  if (props.link) {
-    return (
-      <Link href={props.link} className={classes.btn}>
-        {props.children}
-      </Link>
-    );
-  }
-
+function Button({ children, onClick, variant = 'primary' }) {
   return (
-    <button className={classes.btn} onClick={props.onClick}>
-      {props.children}
+    <button className={`${classes.btn} ${classes[variant]}`} onClick={onClick}>
+      {children}
     </button>
   );
 }

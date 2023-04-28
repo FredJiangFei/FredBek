@@ -2,21 +2,63 @@
   text-decoration: none;
   cursor: pointer;
   font: inherit;
-  background-color: #03be9f;
-  border: 1px solid #03be9f;
-  border-radius: 6px;
-  color: #dafff7;
+  border-radius: 18px;
   padding: 0.5rem 1.5rem;
   text-align: center;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 
   @media screen and (max-width: 768px) {
     padding: 0.1rem 0.5rem;
   }
 }
 
-.btn:hover,
-.btn:active {
-  background-color: #02afa1;
-  border-color: #02afa1;
+.primary {
+  background-color: #01adef;
+  color: white;
+}
+
+.secondary {
+  background: transparent;
+  color: #01adef;
+  border: 1px solid #01adef;
+}
+
+.tertiary {
+  background: transparent;
+  color: black;
+  border: 1px solid black;
+}
+
+.primary-inverted {
+  background: white;
+  color: black;
+}
+
+.secondary-inverted {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.primary:hover {
+  background-color: #008bc0;
+}
+
+.secondary:hover {
+  background-color: #01adef;
+  color: white;
+}
+
+.tertiary:hover {
+  background-color: black;
+  color: white;
+}
+
+.primary-inverted:hover {
+  background: black;
+  color: white;
+}
+
+.secondary-inverted:hover {
+  background: white;
+  color: black;
 }
