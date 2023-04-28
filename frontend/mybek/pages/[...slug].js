@@ -9,8 +9,9 @@ export default function Products() {
   }
 
   return (
-    <>
+    <div className="container mx-auto">
       <Breadcrumb items={slug} />
-    </>
+      <h1 className="text-secondary">Products</h1>
+    </div>
   );
 }

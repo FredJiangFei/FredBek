@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav>
       <div
-        className="bg-gray-300 flex container fixed items-center"
+        className="bg-gray-3 flex container fixed items-center"
         style={{ height: topHeader }}
       >
         <span className="flex-1"></span>
@@ -78,7 +78,7 @@ const Navbar = () => {
 
           <Button>Contact Us</Button>
         </div>
-        <h1 style={{ color: 'red' }}>
+        <h1 className='color-primary'>
           Shape the world with creativity beyond steel
         </h1>
       </div>
