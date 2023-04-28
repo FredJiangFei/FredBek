@@ -1,12 +1,15 @@
 import BkLink from '@/components/ui/bkLink';
 import Button from '@/components/ui/button';
+import Input from '@/components/ui/input';
 
 export default function Home() {
   return (
     <>
       <div className="m-2 space-x-2">
         <BkLink href="/details">Link</BkLink>
-        <BkLink href="/details" size='sm'>Link</BkLink>
+        <BkLink href="/details" size="sm">
+          Link
+        </BkLink>
       </div>
       <div className="p-2 space-x-2" style={{ backgroundColor: '#D7D2CB' }}>
         <Button size="lg">Button</Button>
@@ -59,6 +62,9 @@ export default function Home() {
         <Button variant="secondary-inverted" size="xs">
           Button
         </Button>
+      </div>
+      <div className="p-2 space-x-2" style={{ backgroundColor: '#D7D2CB' }}>
+        <Input />
       </div>
 
       <h1>Home</h1>

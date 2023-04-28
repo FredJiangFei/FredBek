@@ -41,6 +41,12 @@ module.exports = {
             fontWeight: '700',
           },
         ],
+        'content-title': [
+          '2.5rem',
+          {
+            fontWeight: '700',
+          },
+        ],
       },
     },
   },
