@@ -1,19 +1,41 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import ChevronRightIcon from '../icons/chevron-right';
 import Link from 'next/link';
 
 function Breadcrumb({ items }) {
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
+  useEffect(() => {
+    getBreadcrumb(items);
+  }, [items]);
+
+  const getBreadcrumb = (items) => {
+    let breadcrumbs = [];
+    items.map((item) => {
+      const parentPath = breadcrumbs.map((x) => x.name).join('/');
+      breadcrumbs.push({
+        name: item,
+        route: item,
+        path: `${parentPath}/${item}`,
+      });
+    });
+    setBreadcrumbs(breadcrumbs);
+  };
+
   return (
     <nav className="flex" aria-label="Breadcrumb">
-      <ol className="inline-flex items-center space-x-1 md:space-x-3">
+      <ol className="inline-flex items-center space-x-2">
         <li className="inline-flex items-center">
-          <Link href={`/`} style={{ color: '#a7a098', fontSize: '18px' }}>Home</Link>
+          <Link href={`/`} style={{ color: '#a7a098', fontSize: '18px' }}>
+            Home
+          </Link>
         </li>
-        {items.map((item, index) => (
+        {breadcrumbs.map((item, index) => (
           <Fragment key={item + index}>
             <ChevronRightIcon />
             <li className="inline-flex items-center">
-              <Link href={`/${item}`} style={{ fontSize: '18px' }}>{item}</Link>
+              <Link href={item.path} style={{ color: index === breadcrumbs.length - 1 ? '' : '#a7a098', fontSize: '18px' }}>
+                {item.name}
+              </Link>
             </li>
           </Fragment>
         ))}

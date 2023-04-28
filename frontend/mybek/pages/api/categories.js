@@ -16,15 +16,36 @@ const CATEGORY = gql`
 `;
 
 async function handler(req, res) {
-  const { data } = await apolloClient.query({
-    query: CATEGORY,
-  });
-  const categories = data.categories.data.map((category) => {
-    return {
-      id: category.id,
-      ...category.attributes,
-    };
-  });
+  // const { data } = await apolloClient.query({
+  //   query: CATEGORY,
+  // });
+  // const categories = data.categories.data.map((category) => {
+  //   return {
+  //     id: category.id,
+  //     ...category.attributes,
+  //   };
+  // });
+
+  const categories = [
+    {
+      id: 1,
+      title: 'Products & Applications',
+      route: 'products-and-applications',
+      children: [
+        {
+          id: 2,
+          title: 'Markets',
+          route: 'markets',
+          isCategory: true,
+          children: [
+            { id: 3, title: 'Automotive', route: 'automotive', children: [] },
+            { id: 4, title: 'Construction', route: 'construction', children: [] },
+          ],
+        },
+      ],
+    },
+    { title: 'Sustainability', route: 'sustainability', children: [] },
+  ];
 
   res.status(200).json({ data: categories });
 }

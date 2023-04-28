@@ -13,7 +13,7 @@ export default function Products() {
     <div className="container mx-auto">
       <Breadcrumb items={slug} />
       <span className="text-page-title text-secondary">Products</span>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
         <Card />
         <Card />
         <Card />

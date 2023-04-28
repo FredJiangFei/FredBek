@@ -7,11 +7,30 @@ import classes from './navbar.module.css';
 import useSWR from 'swr';
 import { fetcher } from '@/lib/utils';
 
+const Menus = ({ categories, base = '' }) => {
+  return (
+    <>
+      {categories?.length > 0 && (
+        <ul className="flex space-x-8 flex-1 mx-4 relative">
+          {categories?.map((c) => (
+            <li key={c.title} className={`group relative`}>
+              <Link href={`${base}/${c.route}`}>{c.title}</Link>
+              <div className={`group-hover:flex hidden absolute`}>
+                <Menus categories={c.children} base={`${base}/${c.route}`} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+};
+
 const Navbar = () => {
   const [color, setColor] = useState('transparent');
   const topHeader = '60px';
   const { data } = useSWR('/api/categories', fetcher);
-  
+
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 30) {
@@ -54,31 +73,10 @@ const Navbar = () => {
           <Link href="/">
             <Image src="/logo.png" alt="site logo" width={128} height={77} />
           </Link>
-          {data?.data?.length > 0 && (
-            <ul className="flex space-x-8 flex-1 mx-4">
-              {data?.data?.map((menu) => (
-                <li key={menu.title}>
-                  <Link href={`/${menu.route}`}>{menu.title}</Link>
-
-                  {menu?.children?.length > 0 && (
-                    <ul className="flex space-x-8 flex-1 mx-4">
-                      {menu?.children.map((c) => (
-                        <li key={c.title}>
-                          <Link href={`/${menu.route}/${c.route}`}>
-                            {c.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
-
+          <Menus categories={data?.data} />
           <Button>Contact Us</Button>
         </div>
-        <h1 className='color-primary'>
+        <h1 className="color-primary">
           Shape the world with creativity beyond steel
         </h1>
       </div>
