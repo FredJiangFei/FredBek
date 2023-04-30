@@ -15,7 +15,7 @@ const Menus = ({ categories, base = '' }) => {
           {categories?.map((c) => (
             <li key={c.title} className={`group relative`}>
               <Link href={`${base}/${c.route}`}>{c.title}</Link>
-              <div className={`group-hover:flex hidden absolute`}>
+              <div className={`group-hover:flex absolute`}>
                 <Menus categories={c.children} base={`${base}/${c.route}`} />
               </div>
             </li>
@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <nav>
       <div
-        className="bg-gray-3 flex container fixed items-center"
+        className="bg-gray-300 flex container fixed items-center"
         style={{ height: topHeader }}
       >
         <span className="flex-1"></span>
@@ -54,7 +54,7 @@ const Navbar = () => {
             type="text"
             name="search"
             placeholder="Search"
-            className="text-gray-800 w-36 h-10 border-0 rounded-full pl-4 
+            className="text-gray-500 w-36 h-10 border-0 rounded-full pl-4 
                 focus:outline-0 focus:w-96 duration-500"
           />
           <div className="absolute right-4">
@@ -64,7 +64,7 @@ const Navbar = () => {
       </div>
       <div className={classes.slider}>
         <div
-          className="flex items-center w-full fixed top-18"
+          className="flex items-center w-full fixed top-18 bg-white hover:bg-secondary"
           style={{
             backgroundColor: `${color}`,
             top: topHeader,

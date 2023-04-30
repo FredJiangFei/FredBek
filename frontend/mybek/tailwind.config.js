@@ -11,6 +11,15 @@ module.exports = {
     container: {
       padding: '2rem',
     },
+    colors: {
+      gray: {
+        100: '#FBFBFA',
+        200: '#F5F4F2',
+        300: '#EBE9E5',
+        400: '#D7D2CB',
+        500: '#A7A098',
+      },
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -20,13 +29,7 @@ module.exports = {
       colors: {
         primary: colors.primary,
         secondary: colors.secondary,
-        gray: {
-          1: '#FBFBFA',
-          2: '#F5F4F2',
-          3: '#EBE9E5',
-          4: '#D7D2CB',
-          5: '#A7A098',
-        },
+        danger: colors.danger,
       },
       fontSize: {
         'page-title': [

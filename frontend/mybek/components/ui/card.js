@@ -7,7 +7,7 @@ function Card() {
       <Image className="w-full" src="/slider.jpeg" alt="Sunset in the mountains" height={200} width={300}/>
       <div className="px-6 py-4">
         <div className="text-card-title mb-2">The Coldest Sunset</div>
-        <p className="text-gray-700 text-base">
+        <p className="text-gray-500 text-base">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
           quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
           nihil.
