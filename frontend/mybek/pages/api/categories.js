@@ -49,7 +49,7 @@ async function handler(req, res) {
       ],
     },
     { title: 'Sustainability', route: 'sustainability', children: [
-      { id: 5, title: 'Protect the planet', route: 'protect-the-planet', children: [] },
+      // { id: 5, title: 'Protect the planet', route: 'protect-the-planet', children: [] },
     ] },
   ];
 
