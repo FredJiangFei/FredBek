@@ -44,6 +44,31 @@ async function handler(req, res) {
               title: 'Construction',
               route: 'construction',
             },
+            {
+              id: 10,
+              title: 'Energy & Utilities',
+              route: 'energy-utilities',
+            },
+            {
+              id: 11,
+              title: 'Agriculture',
+              route: 'agriculture',
+            },
+            {
+              id: 12,
+              title: 'Consumer goods',
+              route: 'consumer-goods',
+            },
+            {
+              id: 13,
+              title: 'Basic Materials',
+              route: 'basic-materials',
+            },
+            {
+              id: 14,
+              title: 'Equipment',
+              route: 'equipment',
+            },
           ],
         },
         {

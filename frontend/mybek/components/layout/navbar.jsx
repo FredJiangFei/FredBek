@@ -26,6 +26,9 @@ const TopMenus = ({ categories }) => {
         <Link href="/">
           <Image src="/logo.png" alt="site logo" width={128} height={77} />
         </Link>
+        <label for="checkbox_toggle" className={classes.hamburger}>
+          &#9776;
+        </label>
         {categories?.length > 0 && (
           <ul className="flex flex-1 h-full">
             <div className={classes.menu}>
@@ -53,7 +56,12 @@ const SubMenus = ({ categories, base }) => {
         <ul className={classes.dropdown}>
           {categories?.map((category) => (
             <li key={category.title}>
-              <Link href={`${base}/${category.route}`} className={`hover:text-primary ${category.isCategory ? 'font-bold' : ''}`}>
+              <Link
+                href={`${base}/${category.route}`}
+                className={`hover:text-primary ${
+                  category.isCategory ? 'font-bold' : ''
+                }`}
+              >
                 {category.title}
               </Link>
 
@@ -61,7 +69,10 @@ const SubMenus = ({ categories, base }) => {
                 <ul>
                   {category.children?.map((child) => (
                     <li key={child.title}>
-                      <Link href={`${base}/${category.route}/${child.route}`} className="hover:text-primary">
+                      <Link
+                        href={`${base}/${category.route}/${child.route}`}
+                        className="hover:text-primary"
+                      >
                         {child.title}
                       </Link>
                     </li>

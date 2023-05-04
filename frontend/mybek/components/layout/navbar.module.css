@@ -7,6 +7,7 @@
 .menuContainer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 80px;
 }
 
@@ -59,11 +60,20 @@
   display: block;
 }
 
-/* HAMBURGER MENU */
 .hamburger {
   display: none;
   font-size: 24px;
   user-select: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
 
 /* @media (max-width: 768px) {
@@ -88,10 +98,6 @@
   }
 
   input[type='checkbox']:checked ~ .menu {
-    display: block;
-  }
-
-  .hamburger {
     display: block;
   }
 
