@@ -7,8 +7,6 @@
 .menuContainer {
   display: flex;
   align-items: center;
-  padding-left: 16px;
-  padding-right: 16px;
   height: 80px;
 }
 
@@ -37,10 +35,10 @@
   background-color: white;
   position: absolute;
   display: none;
-  top: 80px;
-  width: 100vw;
-  left: -160px;
-  padding-left: 160px;
+  top: 136px;
+  padding-left: 142px;
+  width: 100%;
+  left: 0;
   cursor: default;
 }
 
@@ -50,7 +48,6 @@
 
 .services {
   display: flex;
-  position: relative;
   align-items: center;
 }
 

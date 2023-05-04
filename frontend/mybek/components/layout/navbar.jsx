@@ -27,7 +27,7 @@ const TopMenus = ({ categories }) => {
           <Image src="/logo.png" alt="site logo" width={128} height={77} />
         </Link>
         {categories?.length > 0 && (
-          <ul className="flex space-x-8 flex-1 mx-4 h-full">
+          <ul className="flex flex-1 h-full">
             <div className={classes.menu}>
               {categories?.map((c) => (
                 <li key={c.title} className={classes.services}>
@@ -78,7 +78,7 @@ const SubMenus = ({ categories, base }) => {
 
 const HedaderSearch = () => {
   return (
-    <div className="bg-gray-300 flex h-14 w-full px-4">
+    <div className="bg-gray-300 flex h-14 w-full">
       <span className="flex-1"></span>
       <div className="flex items-center relative">
         <input
