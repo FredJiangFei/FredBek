@@ -36,21 +36,54 @@ async function handler(req, res) {
           id: 2,
           title: 'Markets',
           route: 'markets',
+          isCategory: true,
           children: [
-            { id: 3, title: 'Automotive', route: 'automotive', children: [] },
-            { id: 4, title: 'Construction', route: 'construction', children: [] },
+            { id: 3, title: 'Automotive', route: 'automotive' },
+            {
+              id: 4,
+              title: 'Construction',
+              route: 'construction',
+            },
           ],
         },
         {
           id: 6,
           title: 'Our core competencies',
           route: 'our-core-competencies',
+          isCategory: true,
         },
       ],
     },
-    { title: 'Sustainability', route: 'sustainability', children: [
-      // { id: 5, title: 'Protect the planet', route: 'protect-the-planet', children: [] },
-    ] },
+    {
+      title: 'Sustainability',
+      route: 'sustainability',
+      children: [
+        {
+          id: 5,
+          title: 'Protect the planet',
+          route: 'protect-the-planet',
+          isCategory: true,
+        },
+        {
+          id: 7,
+          title: 'Put people first',
+          route: 'put-people-first',
+          isCategory: true,
+        },
+        {
+          id: 8,
+          title: 'Act with integrity',
+          route: 'act-with-integrity',
+          isCategory: true,
+        },
+        {
+          id: 9,
+          title: 'Reports',
+          route: 'reports',
+          isCategory: true,
+        }
+      ],
+    },
   ];
 
   res.status(200).json({ data: categories });

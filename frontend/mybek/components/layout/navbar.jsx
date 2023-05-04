@@ -27,11 +27,13 @@ const TopMenus = ({ categories }) => {
           <Image src="/logo.png" alt="site logo" width={128} height={77} />
         </Link>
         {categories?.length > 0 && (
-          <ul className="flex space-x-8 flex-1 mx-4 relative h-full">
+          <ul className="flex space-x-8 flex-1 mx-4 h-full">
             <div className={classes.menu}>
               {categories?.map((c) => (
                 <li key={c.title} className={classes.services}>
-                  <Link href={`/${c.route}`}>{c.title}</Link>
+                  <Link href={`/${c.route}`} className="hover:text-primary">
+                    {c.title}
+                  </Link>
                   <SubMenus categories={c.children} base={`/${c.route}`} />
                 </li>
               ))}
@@ -49,12 +51,23 @@ const SubMenus = ({ categories, base }) => {
     <>
       {categories?.length > 0 && (
         <ul className={classes.dropdown}>
-          {categories?.map((c) => (
-            <li key={c.title}>
-              <Link href={`${base}/${c.route}`}>{c.title}</Link>
-              {/* <div>
-                <SubMenus categories={c.children} base={`${base}/${c.route}`} />
-              </div> */}
+          {categories?.map((category) => (
+            <li key={category.title}>
+              <Link href={`${base}/${category.route}`} className={`hover:text-primary ${category.isCategory ? 'font-bold' : ''}`}>
+                {category.title}
+              </Link>
+
+              {category.children?.length > 0 && (
+                <ul>
+                  {category.children?.map((child) => (
+                    <li key={child.title}>
+                      <Link href={`${base}/${category.route}/${child.route}`} className="hover:text-primary">
+                        {child.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>

@@ -4,13 +4,17 @@
   background-image: url('/slider.jpeg');
 }
 
-
 .menuContainer {
   display: flex;
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
   height: 80px;
+}
+
+.menuContainer:hover {
+  background-color: white;
+  border-bottom: 1px solid gray;
 }
 
 .menuContainerScrolled {
@@ -31,21 +35,17 @@
 
 .dropdown {
   background-color: white;
-  padding: 1em 0;
-  position: absolute; 
+  position: absolute;
   display: none;
-  border-radius: 8px;
-  top: 0;
+  top: 80px;
+  width: 100vw;
+  left: -160px;
+  padding-left: 160px;
+  cursor: default;
 }
 
-.dropdown li + li {
-  margin-top: 10px;
-}
-
-.dropdown li {
-  padding: 0.5em 1em;
-  width: 8em;
-  text-align: center;
+.dropdown ul {
+  border-left: 1px solid #d7d2cb;
 }
 
 .services {
